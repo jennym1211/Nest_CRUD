@@ -7,14 +7,16 @@ export class AppController {
   constructor(private readonly userService: UserService) {}
 
   @Get()
-  async getAllUsers(): Promise<string> {
+   getAllUsers(): any[] {
     const users = this.userService.getAllUsers();
     console.log(users);
 
+    var userJSON = [];
+    
     users.then((value) => {
-      console.log(value);
+     userJSON.push(value);
     });
 
-    return users.toString();
+    return userJSON;
   }
 }
