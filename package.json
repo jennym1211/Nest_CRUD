@@ -1,5 +1,5 @@
 {
-  "devDependencies": {
-    "prisma": "^4.3.1"
+  "dependencies": {
+    "uuid": "^9.0.0"
   }
 }

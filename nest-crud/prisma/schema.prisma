@@ -7,33 +7,37 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model posts {
-  id         Int       @id
+model post {
+  id         Int       @id @default(autoincrement())
   title      String?
   body       Json?     @db.Json
-  user_uuid  Int?
   created_at DateTime? @db.Timestamp(6)
   updated_at DateTime? @db.Timestamp(6)
+  user_uuid  String    @db.Uuid
+  user       user      @relation(fields: [user_uuid], references: [user_uuid], onDelete: NoAction, onUpdate: NoAction)
 }
 
-model states {
-  id           Int       @id
+model state {
+  id           Int       @id @default(autoincrement())
   name         String?
   abbreviation String?
   created_at   DateTime? @db.Timestamp(6)
   updated_at   DateTime? @db.Timestamp(6)
+  user         user[]
 }
 
-model users {
-  id          Int       @id
-  uuid        String?   @db.Uuid
+model user {
+  id          Int       @id @default(autoincrement())
+  user_uuid   String?   @unique @db.Uuid
   first_name  String?
   last_name   String?
   address_one String?
   address_two String?
-  city        String?   @db.Char(1)
-  state       Int?
+  city        String?
   zipcode     Int?
   created_at  DateTime? @db.Timestamp(6)
   updated_at  DateTime? @db.Timestamp(6)
+  state_id    Int
+  state       state     @relation(fields: [state_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  post        post[]
 }
