@@ -59,7 +59,7 @@ async function seed() {
   await prisma.post.create({
     data: {
       title: 'New Post',
-      body: {},
+      body: { post: 'this is a new post' },
       user_uuid: uuid,
       created_at: new Date().toISOString(),
       updated_at: new Date().toISOString(),
