@@ -9,4 +9,4 @@ import { Module } from '@nestjs/common';
   controllers: [PostsController],
   providers: [StateService, UserService, PostService],
 })
-export class AppModule {}
+export class AppModule { }

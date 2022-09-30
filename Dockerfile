@@ -1,25 +1,25 @@
-FROM node:12 AS builder
-
+FROM node AS builder
 # Create app directory
 WORKDIR /app
 
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 COPY package*.json ./
-COPY prisma ./prisma/
+COPY ./nest-crud/prisma ./prisma/
 
 # Install app dependencies
-RUN npm install
-# Generate prisma client, leave out if generating in `postinstall` script
-RUN npx prisma generate
 
 COPY . .
+RUN npm install
+RUN npm --prefix "./nest-crud" run build
+RUN npx prisma generate
 
-RUN npm run build
 
-FROM node:12
+
+FROM node
 
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package*.json ./
-COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/nest-crud/dist ./dist
 
 EXPOSE 3000
+CMD [ "npm", "run", "node dist/src/main" ]

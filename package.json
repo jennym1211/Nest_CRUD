@@ -2,5 +2,8 @@
   "dependencies": {
     "uuid": "^9.0.0",
     "yarn": "^1.22.19"
+  },
+  "devDependencies": {
+    "postcss-import": "^15.0.0"
   }
 }
