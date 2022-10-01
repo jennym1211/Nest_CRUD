@@ -5,5 +5,23 @@
   },
   "devDependencies": {
     "postcss-import": "^15.0.0"
-  }
+  },
+  "name": "nest_crud",
+  "description": "Run the following commands:\r -\r - cd nest-crud\r - docker-compose up\r - cd ../\r - cd posts-front\r - npm run dev",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jennym1211/Nest_CRUD.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jennym1211/Nest_CRUD/issues"
+  },
+  "homepage": "https://github.com/jennym1211/Nest_CRUD#readme"
 }

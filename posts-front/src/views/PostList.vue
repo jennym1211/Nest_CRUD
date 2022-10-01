@@ -69,6 +69,7 @@
                   >
                     <router-link
                       :to="{ path: '/edit', query: { id: post.id } }"
+                      style="color: white"
                     >
                       Edit
                     </router-link>

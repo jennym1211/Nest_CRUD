@@ -4,8 +4,10 @@ import NavBar from "./views/NavBar.vue";
 </script>
 
 <template>
-  <header>
-    <NavBar></NavBar>
-  </header>
-  <RouterView />
+  <div>
+    <header>
+      <NavBar></NavBar>
+    </header>
+    <RouterView />
+  </div>
 </template>
